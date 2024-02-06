@@ -1,6 +1,6 @@
 import { NavItem, TODO } from "@/types";
 import Image from "next/image";
-import { Icon } from "../../types";
+import { Icon } from "../types";
 
 type Navigation = {
   [key: string]: NavItem[];
@@ -98,7 +98,7 @@ const navigation: Navigation = {
 
 const Footer = () => {
   return (
-    <footer className="bg-white" aria-labelledby="footer-heading">
+    <footer className="bg-white mt-auto" aria-labelledby="footer-heading">
       <h2 id="footer-heading" className="sr-only">
         Footer
       </h2>

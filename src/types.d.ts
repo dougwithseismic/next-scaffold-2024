@@ -3,7 +3,7 @@ import { ReactNode } from "react";
 // Catch All Drafts
 export type TODO = any;
 
-export type NodeProps = {
+export type FCProps = {
   children: React.ReactNode;
   [key: string]: any;
 };

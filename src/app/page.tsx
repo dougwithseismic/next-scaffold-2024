@@ -1,18 +1,15 @@
-import Image from "next/image";
-import { Title } from "./components/common/title";
+import View from "@/components/common/view";
 
 export default function Home() {
   return (
     <>
-      <div className="container flex items-center justify-center h-full w-full flex-1 gap-4">
-        <div className="border border-foreground-500 rounded-md w-full h-full">
-          <div className="mx-auto px-4 sm:px-6 lg:px-8">
-            {/* Title */}
-            <Title>Activity Feed</Title>
+      <div className="container flex items-center justify-center gap-4">
+        <View title="Activity Feed">
+          <div className="flex items-center justify-center w-full h-full">
+            Hi
           </div>
-        </div>
+        </View>
       </div>
     </>
   );
 }
-
