@@ -45,24 +45,39 @@ const NoteInput: React.FC<NoteInputProps> = () => {
           onChange={(e) => setContent(e.target.value)}
           placeholder={`Add a note about ${contactUser.name}...`}
         />
-        <div className="row flex items-center justify-between gap-4">
-          <div className="col flex gap-2">
-            {Object.values(NoteType).map((type) => (
-              <NoteIcon
-                key={type.label}
-                type={type.key}
-                isSelected={selectedType === type.key}
-                onClick={setSelectedType}
-              />
-            ))}
-          </div>
-          <div className="col">
-            <Button>Submit</Button>
-          </div>
-        </div>
+        <IconList
+          selectedType={selectedType}
+          setSelectedType={setSelectedType}
+        />
       </form>
     </div>
   );
 };
+
+type IconListProps = {
+  selectedType: NoteTypeProps["key"];
+  setSelectedType: (type: NoteTypeProps["key"]) => void;
+};
+
+const IconList: React.FC<IconListProps> = ({
+  selectedType,
+  setSelectedType,
+}) => (
+  <div className="row flex items-center justify-between gap-4">
+    <div className="col flex gap-2">
+      {Object.values(NoteType).map((type) => (
+        <NoteIcon
+          key={type.label}
+          type={type.key}
+          isSelected={selectedType === type.key}
+          onClick={setSelectedType}
+        />
+      ))}
+    </div>
+    <div className="col">
+      <Button>Submit</Button>
+    </div>
+  </div>
+);
 
 export default NoteInput;

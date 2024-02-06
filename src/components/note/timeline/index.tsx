@@ -1,6 +1,6 @@
 "use client";
 import { NoteTypeProps } from "@/types";
-import React, { useMemo } from "react";
+import React, { cloneElement, useMemo } from "react";
 import NoteIcon from "../../note-icon";
 import formatRelativeTimeDate from "@/utility/format-relative-date";
 
@@ -33,11 +33,10 @@ export const VerticalRule: React.FC<{
   isLast?: boolean;
   isFirst?: boolean;
 }> = ({ isLast, isFirst }) => {
-    // Not using isFirst right now, but it's here for future use.
   return (
     <span
-      className={`absolute left-[50%] top-0 h-full -z-10 ${
-        isLast ? "h-0" : "h-full"
+      className={`absolute left-[50%] top-0 -z-10 ${
+        isLast ? "h-0" : " h-full"
       } w-0.5 bg-gray-200`}
     />
   );

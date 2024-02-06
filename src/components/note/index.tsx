@@ -3,7 +3,7 @@
 import React, { memo } from "react";
 import { Note, User } from "@/types";
 import { useActivityFeed } from "@/context/activity-feed-context";
-import { TrashIcon } from "@heroicons/react/24/outline";
+import { PlusIcon, TrashIcon } from "@heroicons/react/24/outline";
 import ProfileLink from "../common/profile-link";
 import { Timeline } from "./timeline";
 
@@ -18,7 +18,11 @@ const NoteComponent: React.FC<NoteProps> = ({ note, isLast, isFirst }) => {
 
   return (
     <div className="w-full flex gap-4 relative">
-      <Timeline dateTime={note.timestamp} noteKey={note.type.key} isLast={isLast} />
+      <Timeline
+        dateTime={note.timestamp}
+        noteKey={note.type.key}
+        isLast={isLast}
+      />
       <NoteBlock
         note={note}
         currentUser={currentUser}
@@ -28,7 +32,6 @@ const NoteComponent: React.FC<NoteProps> = ({ note, isLast, isFirst }) => {
     </div>
   );
 };
-
 
 const NoteBlock: React.FC<{
   note: Note;
@@ -51,15 +54,31 @@ const NoteBlock: React.FC<{
         </div>
         <p className="text-neutral-500 text-sm">{note.content}</p>
       </div>
-      <button
-        className="flex absolute right-4 rounded-full bg-cyan-500 aspect-square w-8 h-8 items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 ease-in-out"
-        onClick={() => onDeleteNote(note.id)}
-      >
-        <TrashIcon color="white" width={"1rem"} height={"1rem"} />
-      </button>
+      <Tooltip.Provider delayDuration={50}>
+        <Tooltip.Root>
+          <Tooltip.Trigger asChild>
+            <button
+              className="flex absolute right-4 rounded-full bg-cyan-500 aspect-square w-8 h-8 items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 ease-in-out"
+              onClick={() => onDeleteNote(note.id)}
+            >
+              <TrashIcon color="white" width={"1rem"} height={"1rem"} />
+            </button>
+          </Tooltip.Trigger>
+          <Tooltip.Portal>
+            <Tooltip.Content
+              className="bg-white text-neutral-500 text-sm px-4 py-2"
+              sideOffset={5}
+            >
+              Delete
+            </Tooltip.Content>
+          </Tooltip.Portal>
+        </Tooltip.Root>
+      </Tooltip.Provider>
     </div>
   );
 };
+
+import * as Tooltip from "@radix-ui/react-tooltip";
 
 export default memo(
   NoteComponent,
