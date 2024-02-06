@@ -3,12 +3,15 @@ import { useActivityFeed } from "@/context/activity-feed-context";
 import NoteComponent from "../note";
 
 const NotesList: React.FC = () => {
-  const { notes, deleteNote } = useActivityFeed();
-
+  const { notes } = useActivityFeed();
   return (
-    <div className="flex flex-col gap-4">
-      {notes?.map((note) => (
-        <NoteComponent key={note.id} note={note} onDeleteNote={deleteNote} />
+    <div className="flex flex-col">
+      {notes?.map((note, i) => (
+        <NoteComponent
+          key={note.id}
+          note={note}
+          isLast={i === notes.length - 1}
+        />
       ))}
     </div>
   );

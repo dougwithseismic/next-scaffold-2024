@@ -49,7 +49,16 @@ export const ActivityFeedProvider: React.FC<{
   );
 
   const value = useMemo(
-    () => ({ currentUser, contactUser, notes, addNote, deleteNote }),
+    () => ({
+      currentUser,
+      contactUser,
+      // Task requirement: The notes should be sorted by timestamp in ascending order.
+      notes: notes.sort(
+        (a, b) => b.timestamp.getTime() - a.timestamp.getTime()
+      ),
+      addNote,
+      deleteNote,
+    }),
     [addNote, contactUser, currentUser, deleteNote, notes]
   );
 

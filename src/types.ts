@@ -1,3 +1,4 @@
+import React from "react";
 // Catch All Drafts
 export type TODO = any;
 
@@ -15,19 +16,17 @@ export type NavItem = {
   IconComponent?: Icon;
 };
 
-// You may want to define the NoteType enum if it isn't already defined
-export enum NoteType {
-  Message = "Message",
-  Phone = "Phone",
-  Coffee = "Coffee",
-  Beer = "Beer",
-  Meeting = "Meeting",
-}
+export type NoteTypeProps = {
+  key: "message" | "phone" | "coffee" | "beer" | "meeting" | "list";
+  label: string;
+  icon: React.ReactNode;
+};
+
 export interface Note {
   id: string;
   timestamp: Date;
   user: string;
-  type: NoteType;
+  type: NoteTypeProps;
   content: string;
 }
 

@@ -20,7 +20,7 @@ const ActivityFeed: React.FC<ActivityFeedProps> = ({
       contactUser={contactUser}
       initialNotes={initialNotes}
     >
-      <div className="flex flex-col gap-4 w-full min-w-full">
+      <div className="flex flex-col w-full min-w-full">
         <NoteInput />
         <NotesList />
       </div>
