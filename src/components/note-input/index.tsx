@@ -33,7 +33,7 @@ const NoteInput: React.FC<NoteInputProps> = () => {
 
   return (
     <div className="w-full flex gap-4 relative">
-      <Timeline noteKey={"message"} isLast={false} isFirst={true} />
+      <Timeline noteKey={"list"} isLast={false} isFirst={true} />
 
       <form
         onSubmit={handleSubmit}
