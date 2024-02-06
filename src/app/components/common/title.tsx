@@ -1,4 +1,4 @@
-import { NodeProps } from "../../page";
+import { NodeProps } from '@/types';
 
 export const Title: React.FC<NodeProps> = ({ children }) => {
   return (

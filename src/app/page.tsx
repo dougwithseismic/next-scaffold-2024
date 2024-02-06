@@ -16,6 +16,3 @@ export default function Home() {
   );
 }
 
-export type NodeProps = {
-  children: React.ReactNode;
-};
