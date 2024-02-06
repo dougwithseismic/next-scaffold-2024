@@ -7,6 +7,7 @@ import { useActivityFeed } from "@/context/activity-feed-context";
 import { NoteType } from "../../constants";
 import NoteIcon from "../note-icon";
 import { Timeline } from "../note/timeline";
+import { ChevronRight } from "lucide-react";
 
 type NoteInputProps = any;
 
@@ -75,7 +76,9 @@ const IconList: React.FC<IconListProps> = ({
       ))}
     </div>
     <div className="col">
-      <Button>Submit</Button>
+      {/* <Button>
+        Submit
+      </Button> */}
     </div>
   </div>
 );

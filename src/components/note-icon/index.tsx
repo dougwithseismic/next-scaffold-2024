@@ -11,7 +11,7 @@ const NoteIcon: React.FC<{
 }> = ({ type, className, isSelected, onClick }) => {
   return (
     <div
-      className={`flex items-center justify-center w-7 md:h-7 p-1 aspect-square bg-foreground-500 rounded-full cursor-pointer select-none
+      className={`flex items-center justify-center w-7 h-7 p-1.5 aspect-square bg-foreground-500 rounded-full cursor-pointer select-none
         hover:bg-foreground-600 transition duration-200 ease-in-out
         ${
           isSelected
