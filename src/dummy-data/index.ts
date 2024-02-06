@@ -42,7 +42,7 @@ export const dummyNotes: Note[] = [
 export const innasNotes: Note[] = [
   {
     id: "5", // Choosing string because uuid is more likely
-    timestamp: new Date(Date.now() - 1000 * 60 * 60 * 24 * 0.5), // 12 hours ago
+    timestamp: new Date(Date.now() - 1000 * 60 * 60 * 24 * 0.2),
     user: inna.name,
     type: NoteType.message,
     content: "Sent over offer and work contract 🚀",

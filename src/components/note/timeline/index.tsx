@@ -34,11 +34,11 @@ export const VerticalRule: React.FC<{
   isFirst?: boolean;
 }> = ({ isLast, isFirst }) => {
     // Not using isFirst right now, but it's here for future use.
-    
+    console.log('isLast :>> ', isLast);
   return (
     <span
       className={`absolute left-[50%] top-0 h-full -z-10 ${
-        isLast ? "h-[10%] " : "h-full"
+        isLast ? "h-0" : "h-full"
       } w-0.5 bg-gray-200`}
     />
   );
